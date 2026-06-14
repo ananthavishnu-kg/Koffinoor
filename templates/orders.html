@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order - Koffinoor Cafe{% endblock %}
+
+{% block content %}
+<!-- Orders Header -->
+<section class="page-header">
+        <h1 class="page-title">Place Your Order</h1>
+        <p class="page-subtitle">We deliver happiness in every sip, right to your doorstep!</p>
+    </div>
+</section>
+
+<!-- Order Form -->
+<section class="order-section">
+    <div class="container">
+        <form method="post" class="order-form" id="orderForm">
+            <!-- Customer Details -->
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Customer Details</h3>
+                <p class="section-description">Please provide your contact information for delivery</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customer_name">Full Name *</label>
+                        <input type="text" id="customer_name" name="customer_name" required 
+                               placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_phone">Phone Number *</label>
+                        <input type="tel" id="customer_phone" name="customer_phone" required 
+                               placeholder="+91 98765 43210" pattern="[\+]?[\d\s\-\(\)]{10,15}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customer_address">Delivery Address *</label>
+                    <textarea id="customer_address" name="customer_address" rows="3" required 
+                              placeholder="Enter your complete delivery address with area, landmarks, and pin code"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="special_instructions">Special Instructions (Optional)</label>
+                    <textarea id="special_instructions" name="special_instructions" rows="2" 
+                              placeholder="Any special requests, delivery notes, or dietary preferences..."></textarea>
+                </div>
+            </div>
+
+
+             <!-- Menu Selection -->
+            <div class="form-section">
+                <h3><i class="fas fa-coffee"></i> Select Your Items</h3>
+                <p class="section-description">Choose from our signature drinks and fresh bites</p>
+                
+                <!-- Coffee Selection -->
+                <div class="menu-selection" id="coffee-selection">
+                    <h4><i class="fas fa-mug-hot"></i> Coffee Collection</h4>
+                    <div class="selection-items" id="coffee-items">
+                        <div class="selection-row">
+                            <select class="item-select" data-category="coffee">
+                                <option value="">Select Coffee</option>
+                                <option value="blood-coffee" data-price="180">Blood Coffee — ₹180</option>
+                                <option value="koffinoor-royale" data-price="200">Koffinoor Royale — ₹200</option>
+                                <option value="filter-reimagined" data-price="150">Filter Reimagined — ₹150</option>
+                                <option value="espresso" data-price="90">Espresso — ₹90</option>
+                                <option value="americano" data-price="120">Americano — ₹120</option>
+                                <option value="cappuccino" data-price="140">Cappuccino — ₹140</option>
+                                <option value="latte" data-price="150">Latte — ₹150</option>
+                                <option value="mocha" data-price="160">Mocha — ₹160</option>
+                            </select>
+                            <input type="number" class="qty-input" min="1" value="1" placeholder="Qty">
+                            <button type="button" class="btn-add-item" data-category="coffee">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                    <div class="added-items" id="coffee-added-items"></div>
+                    <div class="category-total">
+                        <span>Coffee Total: <span id="coffee_subtotal">₹0</span></span>
+                    </div>
+                </div>
+
+                <!-- Tea Selection -->
+                <div class="menu-selection" id="tea-selection">
+                    <h4><i class="fas fa-leaf"></i> Tea Collection</h4>
+                    <div class="selection-items" id="tea-items">
+                        <div class="selection-row">
+                            <select class="item-select" data-category="tea">
+                                <option value="">Select Tea</option>
+                                <option value="masala-chai" data-price="90">Masala Chai — ₹90</option>
+                                <option value="elaichi-chai" data-price="100">Elaichi Chai — ₹100</option>
+                                <option value="green-tea" data-price="100">Green Tea — ₹100</option>
+                                <option value="kashmiri-kahwa" data-price="120">Kashmiri Kahwa — ₹120</option>
+                                <option value="hibiscus-tea" data-price="130">Hibiscus Tea — ₹130</option>
+                            </select>
+                            <input type="number" class="qty-input" min="1" value="1" placeholder="Qty">
+                            <button type="button" class="btn-add-item" data-category="tea">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                    <div class="added-items" id="tea-added-items"></div>
+                    <div class="category-total">
+                        <span>Tea Total: <span id="tea_subtotal">₹0</span></span>
+                    </div>
+                </div>
+
+                <!-- Shake Selection -->
+                <div class="menu-selection" id="shake-selection">
+                    <h4><i class="fas fa-glass-whiskey"></i> Shakes & Coolers</h4>
+                    <div class="selection-items" id="shake-items">
+                        <div class="selection-row">
+                            <select class="item-select" data-category="shake">
+                                <option value="">Select Shake/Cooler</option>
+                                <option value="rose-falooda" data-price="180">Rose Falooda — ₹180</option>
+                                <option value="mango-tango" data-price="170">Mango Tango — ₹170</option>
+                                <option value="choco-frappe" data-price="160">Choco Frappe — ₹160</option>
+                                <option value="classic-cold-coffee" data-price="140">Classic Cold Coffee — ₹140</option>
+                                <option value="strawberry-shake" data-price="150">Strawberry Shake — ₹150</option>
+                            </select>
+                            <input type="number" class="qty-input" min="1" value="1" placeholder="Qty">
+                            <button type="button" class="btn-add-item" data-category="shake">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                    <div class="added-items" id="shake-added-items"></div>
+                    <div class="category-total">
+                        <span>Shakes Total: <span id="shake_subtotal">₹0</span></span>
+                    </div>
+                </div>
+
+                <!-- Snack Selection -->
+                <div class="menu-selection" id="snack-selection">
+                    <h4><i class="fas fa-bread-slice"></i> Bites & Bakes</h4>
+                    <div class="selection-items" id="snack-items">
+                        <div class="selection-row">
+                            <select class="item-select" data-category="snack">
+                                <option value="">Select Snack</option>
+                                <option value="lava-cake" data-price="110">Chocolate Lava Cake — ₹110</option>
+                                <option value="banana-loaf" data-price="100">Banana Walnut Loaf — ₹100</option>
+                                <option value="choco-chip" data-price="100">Chocolate Chip Cookie — ₹100</option>
+                                <option value="cheese-toast" data-price="90">Cheese Toast — ₹90</option>
+                                <option value="paneer-roll" data-price="120">Paneer Roll — ₹120</option>
+                                <option value="brownie" data-price="130">Brownie — ₹130</option>
+                            </select>
+                            <input type="number" class="qty-input" min="1" value="1" placeholder="Qty">
+                            <button type="button" class="btn-add-item" data-category="snack">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                    <div class="added-items" id="snack-added-items"></div>
+                    <div class="category-total">
+                        <span>Snacks Total: <span id="snack_subtotal">₹0</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                <div class="summary-content" id="orderSummary">
+                    <p class="empty-order">No items selected</p>
+                </div>
+                <div class="pricing-breakdown">
+                    <div class="price-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotalAmount">₹0</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Delivery Fee:</span>
+                        <span id="deliveryFee">₹30</span>
+                    </div>
+                    <div class="price-row">
+                        <span>GST (5%):</span>
+                        <span id="gstAmount">₹0</span>
+                    </div>
+                    <div class="total-row">
+                        <span><strong>Total Amount:</strong></span>
+                        <span id="totalAmount"><strong>₹30</strong></span>
+                    </div>
+                </div>
+                <div class="delivery-note">
+                    <i class="fas fa-info-circle"></i>
+                    <small>Free delivery on orders above ₹500. Estimated delivery time: 30-45 minutes</small>
+                </div>
+            </div>
+
+
+
+            <!-- Payment Method -->
+            <div class="form-section">
+                <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                <p class="section-description">Choose your preferred payment option</p>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="UPI" checked>
+                        <span class="payment-label">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <strong>UPI Payment</strong>
+                                <small>Pay using Google Pay, PhonePe, Paytm</small>
+                            </div>
+                        </span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="Cash">
+                        <span class="payment-label">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <strong>Cash on Delivery</strong>
+                                <small>Pay when your order arrives</small>
+                            </div>
+                        </span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="Card">
+                        <span class="payment-label">
+                            <i class="fas fa-credit-card"></i>
+                            <div>
+                                <strong>Credit/Debit Card</strong>
+                                <small>Secure online payment</small>
+                            </div>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Order Preferences -->
+            <div class="form-section">
+                <h3><i class="fas fa-cog"></i> Order Preferences</h3>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" name="eco_packaging" value="yes">
+                            <span class="checkmark"></span>
+                            Use eco-friendly packaging
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" name="cutlery_needed" value="yes" checked>
+                            <span class="checkmark"></span>
+                            Include cutlery and napkins
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" name="contact_on_arrival" value="yes" checked>
+                            <span class="checkmark"></span>
+                            Call before delivery
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <label>
+                            <input type="checkbox" name="newsletter_signup" value="yes">
+                            <span class="checkmark"></span>
+                            Subscribe to offers & updates
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large" id="confirmOrderBtn" disabled>
+                    <i class="fas fa-check-circle"></i> Place Order
+                </button><br>
+                <p class="order-note">
+                    <i class="fas fa-shield-alt"></i>
+                    Your order information is secure and encrypted. We'll send confirmation via SMS.
+                </p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Why Order Online -->
+<section class="why-order-online">
+    <div class="container">
+        <h2 class="section-title">Why Order Online?</h2>
+        <div class="features-grid">
+            <div class="feature-item fade-in">
+                <i class="fas fa-clock"></i>
+                <h4>Save Time</h4>
+                <p>Skip the queue and order from anywhere. Your coffee will be ready when you arrive or delivered fresh.</p>
+            </div>
+            <div class="feature-item fade-in">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Easy Ordering</h4>
+                <p>User-friendly interface makes ordering quick and simple. Save your favorites for faster reordering.</p>
+            </div>
+            <div class="feature-item fade-in">
+                <i class="fas fa-truck"></i>
+                <h4>Fast Delivery</h4>
+                <p>Fresh coffee and snacks delivered to your doorstep in 30-45 minutes. Track your order in real-time.</p>
+            </div>
+            <div class="feature-item fade-in">
+                <i class="fas fa-tags"></i>
+                <h4>Exclusive Offers</h4>
+                <p>Get access to online-only discounts, combo deals, and loyalty rewards. Save more with every order.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- FAQ Section -->
+<section class="order-faq">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item fade-in">
+                <h4>What is the minimum order amount?</h4>
+                <p>There's no minimum order amount. However, orders above ₹500 qualify for free delivery.</p>
+            </div>
+            <div class="faq-item fade-in">
+                <h4>How long does delivery take?</h4>
+                <p>Most orders are delivered within 30-45 minutes. We'll provide an estimated time when you place your order.</p>
+            </div>
+            <div class="faq-item fade-in">
+                <h4>Can I modify my order after placing it?</h4>
+                <p>Yes, you can modify your order within 5 minutes of placing it by calling us at +91 98765 43210.</p>
+            </div>
+            <div class="faq-item fade-in">
+                <h4>Do you offer contactless delivery?</h4>
+                <p>Yes! Select contactless delivery during checkout and we'll leave your order at your doorstep safely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

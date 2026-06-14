@@ -1,0 +1,101 @@
+{% load static %}
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koffinoor Cafe - Where every sip tells a story. Premium coffee, tea, and snacks in a cozy atmosphere.">
+    <meta name="keywords" content="coffee, cafe, tea, snacks, koffinoor, coffee shop">
+    <title>{% block title %}Koffinoor Cafe{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'D:\New folder\ProjectCafe\cafe\static\images\ChatGPT Image Jul 9, 2025, 06_04_21 PM.png' %}">
+    
+
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\ChatGPT Image Jul 9, 2025, 06_04_21 PM.png' %}" alt="Koffinoor Logo" class="logo">
+                <span class="brand-name">Koffinoor</span>
+            </div>
+            <div class="nav-right" id="navMenu">
+                <a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+                <a href="{% url 'menu' %}" class="nav-link {% if request.resolver_match.url_name == 'menu' %}active{% endif %}">Menu</a>
+                <a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+                <a href="{% url 'blogs' %}" class="nav-link {% if request.resolver_match.url_name == 'blogs' %}active{% endif %}">Blogs</a>
+                <a href="{% url 'orders' %}" class="nav-link {% if request.resolver_match.url_name == 'orders' %}active{% endif %}">Order</a>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% if messages %}
+        <div class="flash-messages" id="flashMessages">
+            {% for message in messages %}
+                <div class="flash-message flash-{{ message.tags }}">
+                    <span>{{ message }}</span>
+                    <button class="flash-close" onclick="this.parentElement.remove()">&times;</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Koffinoor Cafe</h3>
+                <p>Where every sip tells a story</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Coffee Street, Bean Town</p>
+                <p><i class="fas fa-phone"></i> +91 8281328839</p>
+                <p><i class="fas fa-envelope"></i> hello@koffinoor.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Opening Hours</h4>
+                <p>Monday - Friday: 7:00 AM - 10:00 PM</p>
+                <p>Saturday - Sunday: 8:00 AM - 11:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Koffinoor Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+     <script src="{% static 'js/script.js' %}"></script>
+    
+</body>
+</html>
+
+
+

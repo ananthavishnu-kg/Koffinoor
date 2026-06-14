@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reviews - Koffinoor Cafe{% endblock %}
+
+{% block content %} 
+<!-- Reviews Header -->
+<section class="page-header">
+        <h1 class="page-title">Guest Stories & Reviews</h1> 
+        <p class="page-subtitle">What our visitors say over a cup of coffee</p>
+    </div>
+</section> 
+
+<!-- Featured Reviews -->
+<section class="featured-reviews">
+    <div class="container">
+        <h2 class="section-title">Featured Reviews</h2>
+        <div class="featured-grid">
+            <div class="featured-review fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info"> 
+                        <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\fotor-ai-20250726171740_resized_small.jpg' %}" alt="Reviewer">
+                        <div>
+                            <h4>Arya Iyer</h4>
+                            <p>Coffee Enthusiast</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <blockquote>"The Blood Coffee is intense and unforgettable — a must-try! The depth of flavor and the unique cherry notes make it unlike anything I've tasted elsewhere. This place truly understands coffee."</blockquote>
+                <div class="review-date">Reviewed 3 days ago</div>
+            </div><br>
+            <div class="featured-review fade-in">
+                <div class="review-header">
+                    <div class="reviewer-info"> 
+                        <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\comments2_resized_small.jpg' %}" alt="Reviewer">
+                        <div>
+                            <h4>Rakesh Nambiar</h4>
+                            <p>Business Professional</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <blockquote>"Loved the ambiance and the Koffinoor Royale felt luxurious! The saffron and gold flakes add such an elegant touch. Perfect place for important meetings or just unwinding after work."</blockquote>
+                <div class="review-date">Reviewed 1 week ago</div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+
+<!-- Customer Reviews Grid -->
+<section class="reviews-section">
+    <div class="container">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <!-- Sample Reviews - in a real app these would come from the database -->
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="review-text">"Perfect place to unwind with filter coffee and banana loaf. The traditional preparation of filter coffee here is authentic and reminds me of home."</p>
+                <div class="review-author">
+                    <strong>— Leena Suresh</strong>
+                    <span class="review-profession">Student</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"The staff knows their craft. Every recommendation has been spot on, and the consistency in quality is impressive. This is my go-to coffee spot."</p>
+                <div class="review-author">
+                    <strong>— Jina K.</strong>
+                    <span class="review-profession">Digital Artist</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="review-text">"Coffee royalty, indeed. The attention to detail in every cup and the luxurious feel of the Koffinoor Royale justify the name completely."</p>
+                <div class="review-author">
+                    <strong>— Vikram N.</strong>
+                    <span class="review-profession">Startup Founder</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Instagrammable interiors, unforgettable flavors. This place knows how to blend art and caffeine. Every corner is photogenic and every drink is delicious."</p>
+                <div class="review-author">
+                    <strong>— Aman P.</strong>
+                    <span class="review-profession">Coffee Enthusiast</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Baristas treat every cup like it's art. Cozy corners, soul-soothing drinks — what more can one ask? The attention to detail is remarkable."</p>
+                <div class="review-author">
+                    <strong>— Sneha D.</strong>
+                    <span class="review-profession">Freelance Writer</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Where tradition meets taste. The filter coffee here hits differently — like a warm hug from home. Perfect balance of nostalgia and innovation."</p>
+                <div class="review-author">
+                    <strong>— Rhea K.</strong>
+                    <span class="review-profession">Design Student</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"A hidden gem! Koffinoor isn't just a café, it's a mood. The aroma, the ambiance, the attitude — everything is perfect. Highly recommend the signature drinks."</p>
+                <div class="review-author">
+                    <strong>— Aarav M.</strong>
+                    <span class="review-profession">Coffee Enthusiast</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="review-text">"The banana walnut loaf is heaven with the Koffinoor Royale. The combination of textures and flavors creates a perfect afternoon treat."</p>
+                <div class="review-author">
+                    <strong>— Arun S.</strong>
+                    <span class="review-profession">Student</span>
+                </div>
+            </div>
+            
+            <div class="review-card fade-in">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Absolutely love the Blood Coffee! The ambiance is warm and the staff welcoming. My go-to coffee spot for both work and relaxation."</p>
+                <div class="review-author">
+                    <strong>— Riya Mehta</strong>
+                    <span class="review-profession">Vlogger</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reviews-cta">
+            <p class="reviews-subtext">Real words from our cherished Koffinoor community</p>
+            <a href="{% url 'orders' %}" class="btn btn-primary">Visit Us Today</a>
+        </div>
+    </div>
+</section>
+    
+<!-- Review Stats -->
+<section class="review-stats">
+    <div class="container">
+        <h2 class="section-title">Customer Satisfaction</h2>
+        
+        
+
+<!-- Review Form -->
+<section class="review-form-section">
+    <div class="container">
+        <div class="form-container">
+            <h2><i class="fas fa-comment-dots"></i> Share Your Experience</h2>
+            <p>We'd love to hear about your Koffinoor experience! Your feedback helps us serve you better.</p>
+            
+            <form method="post" class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="review">Your Feedback *</label>
+                    <textarea id="review" name="review" rows="5" required 
+                              placeholder="Tell us about the vibes, coffee, service, or your favorite corner at Koffinoor..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Rate Your Experience *</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                    <div class="rating-labels">
+                        <span>Poor</span>
+                        <span>Excellent</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="favorite-item">What did you order? (Optional)</label>
+                    <input type="text" id="favorite-item" name="favorite_item" 
+                           placeholder="e.g., Blood Coffee, Koffinoor Royale, Banana Loaf...">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </form>
+        </div>
+    </div>
+    <br>
+
+<!-- customer info -->
+    <div class="stats-grid">
+            <div class="star-card">
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">Average Rating</div>
+                <div class="stat-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="star-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Reviews</div>
+                <div class="stat-description">From verified customers</div>
+            </div>
+            <div class="star-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Recommend Us</div>
+                <div class="stat-description">Would visit again</div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+<!-- Review Guidelines -->
+<section class="review-guidelines">
+    <div class="container">
+        <h3>Review Guidelines</h3>
+        <div class="guidelines-grid">
+            <div class="guideline-item">
+                <i class="fas fa-heart"></i>
+                <p><strong>Be Honest:</strong> Share your genuine experience to help other customers and help us improve.</p>
+            </div>
+            <div class="guideline-item">
+                <i class="fas fa-users"></i>
+                <p><strong>Be Respectful:</strong> Keep your language friendly and constructive for our community.</p>
+            </div>
+            <div class="guideline-item">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Be Specific:</strong> Mention specific items, service aspects, or experiences that stood out.</p>
+            </div>
+            <div class="guideline-item">
+                <i class="fas fa-clock"></i>
+                <p><strong>Be Timely:</strong> Recent experiences help us maintain consistent quality standards.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container"> 
+        <div class="cta-content"> 
+            <h2>Ready to Create Your Own Story?</h2>
+            <p>Visit us today and experience the Koffinoor difference for yourself</p>
+            <div class="cta-buttons">
+                <a href="{% url 'orders' %}" class="btn btn-primary">Order Now</a>
+                <a href="{% url 'about' %}" class="btn btn-secondary">Learn About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %} 

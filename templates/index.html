@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Home - Koffinoor Cafe{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content-wrapper">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-image">
+                <h1 class="hero-title">Welcome to Koffinoor</h1><img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\ChatGPT Image Jul 9, 2025, 06_44_14 PM.png' %}" alt="Koffinoor Logo" class="hero-img">
+                </div>
+                <p class="page-subtitle">Brewed with tradition & Served with love</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Why Choose Koffinoor?</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>Sourced from the finest coffee plantations, each bean is carefully selected for exceptional flavor and aroma.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Artisan Brewing</h3>
+                <p>Our skilled baristas craft each cup with passion and precision, creating unforgettable experiences with every sip.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Cozy Atmosphere</h3>
+                <p>Relax in our warm, inviting space designed for connection, creativity, and comfort in the heart of the city.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Signature Drinks Preview -->
+<section class="signature-preview">
+    <div class="container">
+        <h2 class="section-title">Our Recommendations</h2>
+        <div class="signature-grid">
+            <div class="signature-card fade-in">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\SS.png' %}" alt="Blood Coffee">
+                <div class="signature-info">
+                    <h3>Signature Specials</h3>
+                    <p subclass>Blood Coffee</p subclass>
+                    <p>Our bold signature blend with dark cherry notes and intense espresso</p>
+                    <span class="price">₹180</span>
+                </div>
+            </div>
+            <div class="signature-card fade-in">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\ChatGPT Image Jul 17, 2025, 04_23_03 PM.png' %}" alt="Koffinoor Royale">
+                <div class="signature-info">
+                    <h3>Coffee Clasics</h3>
+                    <p subclass>Koffinoor Royale</p subclass>
+                    <p>Luxurious espresso with saffron milk and delicate gold flakes</p>
+                    <span class="price">₹200</span>
+                </div>
+            </div>
+            <div class="signature-card fade-in">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Tea.png' %}" alt="Filter Reimagined">
+                <div class="signature-info">
+                    <h3>Tea & Tisanes</h3>
+                    <p subclass>Filter Reimagined</p subclass>
+                    <p>Modern twist on traditional South Indian filter coffee</p>
+                    <span class="price">₹150</span>
+                </div>
+            </div>
+            <div class="signature-card fade-in">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Cool.png' %}" alt="Koffinoor Royale">
+                <div class="signature-info">
+                    <h3>Coolers & Shakes</h3>
+                    <p subclass>Choco Frappe</p subclass>
+                    <p>Rich chocolate blended drink with ice and cream</p>
+                    <span class="price">₹200</span>
+                </div>
+            </div>
+            <div class="signature-card fade-in">
+                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\bites.png' %}" alt="Koffinoor Royale">
+                <div class="signature-info">
+                    <h3>Bites & Bakes</h3>
+                    <p subclass>Banana Walnut Loaf</p subclass>
+                    <p>Moist banana bread studded with crunchy walnuts</p>
+                    <span class="price">₹200</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{% url 'menu' %}" class="btn btn-secondary">View Full Menu</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Preview -->
+<section class="testimonials-preview">
+    <div class="container">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The Blood Coffee is intense and unforgettable — a must-try!"</p>
+                <div class="author">— Arya Iyer</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Loved the ambiance and the Koffinoor Royale felt luxurious!"</p>
+                <div class="author">— Rakesh Nambiar</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>"Perfect place to unwind with filter coffee and banana loaf."</p>
+                <div class="author">— Leena Suresh</div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{% url 'blogs' %}" class="btn btn-secondary">Read All Reviews</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Experience Koffinoor?</h2>
+            <p>Order now and taste the difference in every sip. From traditional Indian coffee to modern innovations.</p>
+            <a href="{% url 'orders' %}" class="btn btn-primary">Order Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

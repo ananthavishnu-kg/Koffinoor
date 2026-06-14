@@ -1,0 +1,336 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menu - Koffinoor Cafe{% endblock %}
+
+{% block content %}
+<!-- Menu Header -->
+<section class="page-header">
+        <h1 class="page-title">Our Menu</h1>
+        <p class="page-subtitle">A curated collection of brews, blends, and bites crafted with passion</p>
+    </div>
+</section>
+
+<!-- Menu Container -->
+<section class="menu-section">
+    <div class="container">
+        
+        <!-- Signature Specials -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2><i class="fas fa-fire"></i> Signature Specials</h2>
+                <p>Our exclusive creations that define the Koffinoor experience</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <img src="{% static 'images/SS.png' %}" alt="Blood Coffee" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Blood Coffee</h3>
+                        <p>Dark cherry and espresso blend — bold, intense, and unforgettable</p>
+                        <span class="price">₹180</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\goldflake.png' %}"alt="Koffinoor Royale" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Koffinoor Royale</h3>
+                        <p>Premium espresso with saffron milk and delicate gold flakes</p>
+                        <span class="price">₹200</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\FC.avif' %}" alt="Filter Reimagined" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Filter Reimagined</h3>
+                        <p>Modern twist on traditional South Indian filter coffee</p>
+                        <span class="price">₹150</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Vanilla-Chai-Hot-Chocolate-1.webp' %}" alt="Spiced Cocoa Storm" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Spiced Cocoa Storm</h3>
+                        <p>Rich dark chocolate with warming spices of cinnamon and nutmeg</p>
+                        <span class="price">₹170</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coffee Classics -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2><i class="fas fa-coffee"></i> Coffee Classics</h2>
+                <p>Timeless favorites crafted to perfection by our expert baristas</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\What-Is-Macchiato.webp' %}" alt="Espresso" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Espresso</h3>
+                        <p>Pure and intense shot of premium coffee</p>
+                        <span class="price">₹90</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\america.webp' %}" alt="Americano" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Americano</h3>
+                        <p>Smooth black coffee, clean and straightforward</p>
+                        <span class="price">₹120</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\cappu.jpg' %}" alt="Cappuccino" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Cappuccino</h3>
+                        <p>Perfect balance of espresso, steamed milk, and foam</p>
+                        <span class="price">₹140</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Latte-recipe.jpg' %}" alt="Latte" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Latte</h3>
+                        <p>Silky steamed milk with espresso, smooth and comforting</p>
+                        <span class="price">₹150</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\FW.jpg' %}" alt="Flat White" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Flat White</h3>
+                        <p>Double shot espresso with velvety microfoam</p>
+                        <span class="price">₹160</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Cold brew.webp' %}" alt="Cold Brew" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Cold Brew</h3>
+                        <p>Smooth, chilled coffee concentrate brewed for hours</p>
+                        <span class="price">₹160</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\mocha-latte-13.jpg' %}" alt="Mocha" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Mocha</h3>
+                        <p>Perfect harmony of coffee and chocolate</p>
+                        <span class="price">₹160</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\affogato.webp' %}" alt="Affogato" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Affogato</h3>
+                        <p>Hot espresso shot over creamy vanilla ice cream</p>
+                        <span class="price">₹170</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tea & Tisanes -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2><i class="fas fa-leaf"></i> Tea & Tisanes</h2>
+                <p>Soothing blends and aromatic teas from Indian traditions and beyond</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\MS.jpg' %}" alt="Masala Chai" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Masala Chai</h3>
+                        <p>Traditional Indian spiced tea with aromatic warmth</p>
+                        <span class="price">₹90</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\EC.webp' %}" alt="Elaichi Chai" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Elaichi Chai</h3>
+                        <p>Cardamom-infused tea with fragrant complexity</p>
+                        <span class="price">₹100</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\GT.webp' %}" alt="Green Tea" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Green Tea</h3>
+                        <p>Refreshing and antioxidant-rich, available with mint or lemon</p>
+                        <span class="price">₹100</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\KASHMIRI-KAHWA.jpg' %}" alt="Kashmiri Kahwa" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Kashmiri Kahwa</h3>
+                        <p>Saffron and almond infused traditional Kashmiri tea</p>
+                        <span class="price">₹120</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Hibiscus-Tea_HEADER.jpg' %}" alt="Hibiscus Tea" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Hibiscus Tea</h3>
+                        <p>Floral and refreshing herbal tea, served hot or iced</p>
+                        <span class="price">₹130</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coolers & Shakes -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2><i class="fas fa-glass-whiskey"></i> Coolers & Shakes</h2>
+                <p>Refreshing drinks and indulgent shakes for every mood</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\RF.jpg' %}" alt="Rose Falooda" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Rose Falooda</h3>
+                        <p>Traditional rose-flavored drink with vermicelli and basil seeds</p>
+                        <span class="price">₹180</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\MSMOO.webp' %}" alt="Mango Tango" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Mango Tango</h3>
+                        <p>Fresh mango smoothie with tropical sweetness</p>
+                        <span class="price">₹170</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Choco-Frappe.avif' %}"  alt="Choco Frappe" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Choco Frappe</h3>
+                        <p>Rich chocolate blended drink with ice and cream</p>
+                        <span class="price">₹160</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Homemade-iced-coffee-1200-1200.jpg' %}"  alt="Classic Cold Coffee" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Classic Cold Coffee</h3>
+                        <p>Chilled coffee with milk, ice, and a touch of sweetness</p>
+                        <span class="price">₹140</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\straw.jpeg' %}"  alt="Strawberry Shake" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Strawberry Shake</h3>
+                        <p>Fresh strawberry milkshake with natural fruit goodness</p>
+                        <span class="price">₹150</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bites & Bakes -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2><i class="fas fa-bread-slice"></i> Bites & Bakes</h2>
+                <p>Perfect companions for your favorite drink, freshly made daily</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Lava-Chocolate-Cakes_.jpg' %}" alt="Chocolate Lava Cake" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm cake with molten chocolate center</p>
+                        <span class="price">₹110</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\banana.png' %}" alt="Banana Walnut Loaf" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Banana Walnut Loaf</h3>
+                        <p>Moist banana bread studded with crunchy walnuts</p>
+                        <span class="price">₹100</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg' %}" alt="Chocolate Chip Cookie" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Chocolate Chip Cookie</h3>
+                        <p>Fresh baked cookies with premium chocolate chips</p>
+                        <span class="price">₹100</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\cheese.png' %}" alt="Cheese Toast" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Cheese Toast</h3>
+                        <p>Grilled sandwich with melted cheese and herbs</p>
+                        <span class="price">₹90</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\paneer.png' %}" alt="Paneer Roll" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Paneer Roll</h3>
+                        <p>Spiced paneer wrapped in soft bread with mint chutney</p>
+                        <span class="price">₹120</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\fudge.png' %}" alt="Brownie" class="menu-item-image">
+                    <div class="menu-item-content">
+                        <h3>Brownie</h3>
+                        <p>Rich, fudgy chocolate brownie with nuts</p>
+                        <span class="price">₹130</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Info -->
+        <div class="menu-info">
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <strong>Preparation Time</strong>
+                    <p>5-15 minutes</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <strong>Delivery</strong>
+                    <p>30-45 minutes</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <strong>Order Hotline</strong>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div><br>
+        </div><br>
+        <div>    
+            {% comment %} <div class="info-card"> {% endcomment %}
+            <center>
+                <i class="fas fa-leaf"></i>
+                <p><strong>Vegan and gluten-free options available on request</strong></p>
+            </center>
+        </div>
+
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Order?</h2>
+            <p>Experience the finest coffee and treats, delivered fresh to your doorstep</p>
+            <a href="{% url 'orders' %}" class="btn btn-primary">Place Your Order</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
