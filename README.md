@@ -36,9 +36,7 @@
 
 | 🎬 Screen Recording | Description |
 |---|---|
-| [▶️ Click here to watch the demo](#) | Full walkthrough of the Koffinoor Café website |
-
-> 📌 *Replace the `#` above with your actual screen recording link (YouTube / Loom)*
+| [▶️ Click here to watch the demo](https://drive.google.com/file/d/1VsjlAIcml40Y4tTPWmXhfrw86MNbJUEc/view?usp=sharing) | Full walkthrough of the Koffinoor Café website |
 
 </div>
 
