@@ -36,7 +36,8 @@
 
 | 🎬 Screen Recording | Description |
 |---|---|
-| [▶️ Click here to watch the demo](https://drive.google.com/file/d/1VsjlAIcml40Y4tTPWmXhfrw86MNbJUEc/view?usp=sharing) | Full walkthrough of the Koffinoor Café website |
+| [▶️ Click here to watch demo](https://drive.google.com/file/d/1VsjlAIcml40Y4tTPWmXhfrw86MNbJUEc/view?usp=sharing) | Full walkthrough of the Koffinoor Café website |
+| [🌐 Click here to checkout the website](https://root11.pythonanywhere.com/) | Live - Koffinoor Café website |
 
 </div>
 
