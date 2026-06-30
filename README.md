@@ -164,30 +164,36 @@ Koffinoor/
 ```bash
 # Clone the repository
 git clone https://github.com/ananthavishnu-kg/Koffinoor.git
-cd Koffinoor
+cd Koffinoor/cafe
 
 # Create and activate virtual environment
-python -m venv djvenv
-djvenv\Scripts\activate        # On Windows
-source djvenv/bin/activate     # On Mac/Linux
+python -m venv venv
+venv\Scripts\activate        # On Windows
+source venv/bin/activate     # On Mac/Linux
 
-# Install Django
-pip install django
+# Install dependencies
+pip install -r requirements.txt
+```
 
-# Navigate to project folder
-cd cafe
+Create a `.env` file in the `cafe` folder:
+```env
+DJANGO_SECRET_KEY=your-secret-key-here
+DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
+```
 
-# Run migrations
+Generate a secret key:
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Run migrations and start the server:
+```bash
 python manage.py migrate
-
-# Start the development server
 python manage.py runserver
 ```
 
-Open your browser and go to:
-```
-http://127.0.0.1:8000
-```
+Open your browser at **http://127.0.0.1:8000**
 
 ---
 
