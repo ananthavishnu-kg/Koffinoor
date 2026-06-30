@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import Order, Review
+from .forms import OrderForm
 import json
 
 def index(request):
@@ -35,32 +36,14 @@ def blogs(request):
 def orders(request):
     """Orders page view"""
     if request.method == 'POST':
-        try:
-            # Extract form data
-            order_data = {
-                'customer_name': request.POST.get('customer_name'),
-                'customer_phone': request.POST.get('customer_phone'),
-                'customer_address': request.POST.get('customer_address'),
-                'special_instructions': request.POST.get('special_instructions', ''),
-                'coffee_item': request.POST.get('coffee_item', ''),
-                'coffee_qty': int(request.POST.get('coffee_qty', 0)),
-                'tea_item': request.POST.get('tea_item', ''),
-                'tea_qty': int(request.POST.get('tea_qty', 0)),
-                'shake_item': request.POST.get('shake_item', ''),
-                'shake_qty': int(request.POST.get('shake_qty', 0)),
-                'snack_item': request.POST.get('snack_item', ''),
-                'snack_qty': int(request.POST.get('snack_qty', 0)),
-                'payment_method': request.POST.get('payment_method', 'UPI'),
-                'total_amount': float(request.POST.get('total_amount', 0))
-            }
-            
-            # Create order
-            order = Order.objects.create(**order_data)
-            
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save()
             messages.success(request, f'Order placed successfully! Order ID: #{order.id}')
             return redirect('orders')
-            
-        except Exception as e:
-            messages.error(request, f'Error placing order: {str(e)}')
-    
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
+
     return render(request, 'orders.html')
