@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import Order, Review
+from .models import Order, Review, OrderItem
 from .forms import OrderForm
 import json
 
@@ -38,7 +38,18 @@ def orders(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)
+            order.save()
+
+            cart_items = form.cleaned_data['cart_data']
+            for item in cart_items:
+                OrderItem.objects.create(
+                    order=order,
+                    item_name=item['name'],
+                    item_price=item['price'],
+                    quantity=item['qty'],
+                )
+
             messages.success(request, f'Order placed successfully! Order ID: #{order.id}')
             return redirect('orders')
         else:

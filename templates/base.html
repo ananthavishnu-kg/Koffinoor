@@ -24,11 +24,12 @@
 
 </head>
 <body>
-   <!-- Navigation -->
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-left">
-                <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\ChatGPT Image Jul 9, 2025, 06_04_21 PM.png' %}" alt="Koffinoor Logo" class="logo">
+                <img src="{% static 'images/ChatGPT Image Jul 9, 2025, 06_04_21 PM.png' %}" alt="Koffinoor Logo" class="logo">
                 <span class="brand-name">Koffinoor</span>
             </div>
             <div class="nav-right" id="navMenu">
@@ -37,6 +38,10 @@
                 <a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
                 <a href="{% url 'blogs' %}" class="nav-link {% if request.resolver_match.url_name == 'blogs' %}active{% endif %}">Blogs</a>
                 <a href="{% url 'orders' %}" class="nav-link {% if request.resolver_match.url_name == 'orders' %}active{% endif %}">Order</a>
+                <a href="javascript:void(0);" class="nav-link cart-link" onclick="toggleCartPanel()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+                </a>
             </div>
             <div class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -91,11 +96,51 @@
         </div>
     </footer>
 
+
+    <!-- Cart Slide Panel -->
+<div id="cart-panel" class="cart-panel">
+    <div class="cart-panel-header">
+        <h3>Your Cart</h3>
+        <button onclick="toggleCartPanel()" class="cart-close-btn">✕</button>
+    </div>
+    <div id="cart-items-list" class="cart-items-list">
+        <p class="cart-empty">Your cart is empty. Add items from the menu!</p>
+    </div>
+    <div class="cart-panel-footer">
+        <div class="cart-total-row">
+            <span>Total:</span>
+            <span id="cart-total-amount">₹0</span>
+        </div>
+        <button onclick="proceedToCheckout()" class="cart-checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+<div id="cart-overlay" class="cart-overlay" onclick="toggleCartPanel()"></div> 
+
+
+    <!-- Cart Panel -->
+    <div id="cart-panel" class="cart-panel">
+        <div class="cart-panel-header">
+            <h3>🧺 Your Cart</h3>
+            <button onclick="toggleCartPanel()" class="cart-close-btn">✕</button>
+        </div>
+        <div id="cart-items-list" class="cart-items-list">
+            <p class="cart-empty">Your cart is empty. Add items from the menu!</p>
+        </div>
+        <div class="cart-panel-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total-amount">₹0</span>
+            </div>
+            <button onclick="window.location.href='/orders/'" class="cart-checkout-btn">
+                Proceed to Order →
+            </button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCartPanel()"></div>
+
     <!-- JavaScript -->
-     <script src="{% static 'js/script.js' %}"></script>
-    
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
 </body>
 </html>
-
-
-

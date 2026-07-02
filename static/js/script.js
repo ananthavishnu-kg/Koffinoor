@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeOrderForm();
     initializeMobileMenu();
     initializeScrollEffects();
+    renderCartFromStorage();
 });
 
 /**
@@ -350,11 +351,19 @@ function initializeOrderForm() {
         if (gstAmount) gstAmount.textContent = `₹${gst}`;
         if (totalAmount) totalAmount.innerHTML = `<strong>₹${total}</strong>`;
         if (hiddenTotalAmount) hiddenTotalAmount.value = total;
+
+        // Enable/disable submit button
+        const confirmBtn = document.getElementById('confirmOrderBtn');
+        if (confirmBtn) confirmBtn.disabled = allItems.length === 0;
     }
 
+    // Expose so cart-bridge code can call it after pre-filling items
+    window.koffinoorUpdateCategoryDisplay = updateCategoryDisplay;
+    window.koffinoorUpdateOrderSummary = updateOrderSummary;
 
-
-
+    // Pre-fill from cart (added via Menu page + buttons) if any
+    prefillOrderFormFromCart();
+}
 
 /**
  * Form validation
@@ -578,4 +587,228 @@ if (typeof module !== 'undefined' && module.exports) {
         showNotification,
         debounce
     };
-}}
+}
+
+// ============ CART BRIDGE: Menu page "+" buttons -> Orders page ============
+// Stores items added from the Menu page in localStorage as a simple list:
+// [{ name, price, qty }, ...]
+// On the Orders page, these get folded into window.orderItems under a
+// generic "menu" category so they show up using the existing rendering
+// functions, without changing any of the proven order-form logic above.
+
+const CART_KEY = 'koffinoor_cart';
+
+function getCart() {
+    try {
+        const data = localStorage.getItem(CART_KEY);
+        return data ? JSON.parse(data) : [];
+    } catch (err) {
+        return [];
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    refreshBadge();
+}
+
+function refreshBadge() {
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+}
+
+function addToCart(name, price) {
+    const cart = getCart();
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name: name, price: parseFloat(price), qty: 1 });
+    }
+    saveCart(cart);
+    showAddedToast(name);
+}
+
+function getCartCount() {
+    return getCart().reduce((sum, item) => sum + item.qty, 0);
+}
+
+function updateCartBadge_old() {
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        const count = getCartCount();
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+}
+
+function showAddedToast(name) {
+    const toast = document.createElement('div');
+    toast.className = 'cart-toast';
+    toast.textContent = `✓ ${name} added`;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 1800);
+}
+
+/**
+ * Renders the floating cart badge on whichever page is loaded.
+ * Safe to call on every page (it just checks if #cart-badge exists).
+ */
+function renderCartFromStorage() {
+    refreshBadge();
+}
+
+/**
+ * On the Orders page only: take whatever is sitting in the Menu-page cart
+ * and merge it into window.orderItems.menu, then render + clear the cart
+ * so it doesn't get double counted on repeat visits.
+ */
+function prefillOrderFormFromCart() {
+    if (!window.orderItems) return;
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    if (cart.length === 0) return;
+
+    // Map each cart item to its correct Orders page category
+    const coffeeItems = ['Blood Coffee','Koffinoor Royale','Filter Reimagined','Spiced Cocoa Storm',
+        'Espresso','Americano','Cappuccino','Latte','Flat White','Cold Brew','Mocha','Affogato'];
+    const teaItems = ['Masala Chai','Elaichi Chai','Green Tea','Kashmiri Kahwa','Hibiscus Tea'];
+    const shakeItems = ['Rose Falooda','Mango Tango','Choco Frappe','Classic Cold Coffee','Strawberry Shake'];
+
+    cart.forEach(cartItem => {
+        let category = 'snack';
+        if (coffeeItems.includes(cartItem.name)) category = 'coffee';
+        else if (teaItems.includes(cartItem.name)) category = 'tea';
+        else if (shakeItems.includes(cartItem.name)) category = 'shake';
+
+        const existing = window.orderItems[category].find(i => i.id === cartItem.name);
+        if (existing) {
+            existing.quantity += cartItem.qty;
+            existing.subtotal = existing.price * existing.quantity;
+        } else {
+            window.orderItems[category].push({
+                id: cartItem.name,
+                name: cartItem.name,
+                price: cartItem.price,
+                quantity: cartItem.qty,
+                subtotal: cartItem.price * cartItem.qty
+            });
+        }
+    });
+
+    // Render all categories and update summary
+    ['coffee','tea','shake','snack'].forEach(cat => {
+        if (typeof window.koffinoorUpdateCategoryDisplay === 'function') {
+            window.koffinoorUpdateCategoryDisplay(cat);
+        }
+    });
+    if (typeof window.koffinoorUpdateOrderSummary === 'function') {
+        window.koffinoorUpdateOrderSummary();
+    }
+
+    // Clear cart after loading into order
+    refreshBadge();
+}
+
+// ============ CART PANEL UI ============
+function toggleCartPanel() {
+    const panel = document.getElementById('cart-panel');
+    const overlay = document.getElementById('cart-overlay');
+    if (panel) {
+        panel.classList.toggle('open');
+        if (overlay) overlay.classList.toggle('open');
+        if (panel.classList.contains('open')) renderCartPanel();
+    }
+}
+
+function renderCartPanel() {
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    const container = document.getElementById('cart-items-list');
+    const totalEl = document.getElementById('cart-total-amount');
+    if (!container) return;
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="cart-empty">Your cart is empty. Add items from the menu!</p>';
+        if (totalEl) totalEl.textContent = '\u20b90';
+        return;
+    }
+
+    container.innerHTML = cart.map(item => `
+        <div class="cart-item-row">
+            <div class="cart-item-info">
+                <span class="cart-item-name">${item.name}</span>
+                <span class="cart-item-price">\u20b9${item.price} x ${item.qty}</span>
+            </div>
+            <div class="cart-item-controls">
+                <button onclick="cartUpdateQty('${item.name.replace(/'/g, "\\'")}', -1)" class="qty-btn">\u2212</button>
+                <span class="qty-display">${item.qty}</span>
+                <button onclick="cartUpdateQty('${item.name.replace(/'/g, "\\'")}', 1)" class="qty-btn">+</button>
+                <button onclick="cartRemove('${item.name.replace(/'/g, "\\'")}' )" class="remove-btn">\u2715</button>
+            </div>
+        </div>
+    `).join('');
+
+    const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+    if (totalEl) totalEl.textContent = `\u20b9${total.toFixed(2)}`;
+}
+
+function cartUpdateQty(name, delta) {
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    const item = cart.find(i => i.name === name);
+    if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+            cart = cart.filter(i => i.name !== name);
+        }
+    }
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+    renderCartPanel();
+}
+
+function cartRemove(name) {
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    cart = cart.filter(i => i.name !== name);
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+    }
+    renderCartPanel();
+}
+
+function proceedToCheckout() {
+    const CART_KEY = 'koffinoor_cart';
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch(e) {}
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items from the menu first.');
+        return;
+    }
+    window.location.href = '/orders/';
+}

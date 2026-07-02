@@ -9,25 +9,31 @@ class Order(models.Model):
     customer_phone = models.CharField(max_length=20)
     customer_address = models.TextField()
     special_instructions = models.TextField(blank=True, null=True)
-    
-    # Menu items
-    coffee_item = models.CharField(max_length=50, blank=True, null=True)
-    coffee_qty = models.PositiveIntegerField(default=0)
-    tea_item = models.CharField(max_length=50, blank=True, null=True)
-    tea_qty = models.PositiveIntegerField(default=0)
-    shake_item = models.CharField(max_length=50, blank=True, null=True)
-    shake_qty = models.PositiveIntegerField(default=0)
-    snack_item = models.CharField(max_length=50, blank=True, null=True)
-    snack_qty = models.PositiveIntegerField(default=0)
-    
+
     payment_method = models.CharField(max_length=20, default='UPI')
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    
+
     created_at = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=20, default='pending')
-    
+
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
+
+
+class OrderItem(models.Model):
+    """A single dish within an order — supports any number of items."""
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    item_name = models.CharField(max_length=100)
+    item_price = models.DecimalField(max_digits=8, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} x {self.item_name}"
+
+    @property
+    def subtotal(self):
+        return self.item_price * self.quantity
+
 
 class Review(models.Model):
     """Model for customer reviews"""
@@ -37,9 +43,9 @@ class Review(models.Model):
     profession = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
     is_featured = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return f"Review by {self.name} - {self.rating} stars"
-    
+
     class Meta:
         ordering = ['-created_at']

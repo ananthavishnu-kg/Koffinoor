@@ -1,4 +1,5 @@
 import re
+import json
 from django import forms
 from .models import Order
 
@@ -6,16 +7,13 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     """Validated form for placing a customer order."""
 
+    cart_data = forms.CharField(widget=forms.HiddenInput(), required=True)
+
     class Meta:
         model = Order
         fields = [
             'customer_name', 'customer_phone', 'customer_address',
-            'special_instructions',
-            'coffee_item', 'coffee_qty',
-            'tea_item', 'tea_qty',
-            'shake_item', 'shake_qty',
-            'snack_item', 'snack_qty',
-            'payment_method', 'total_amount',
+            'special_instructions', 'payment_method', 'total_amount',
         ]
         widgets = {
             'customer_address': forms.Textarea(attrs={'rows': 3}),
@@ -47,16 +45,25 @@ class OrderForm(forms.ModelForm):
             raise forms.ValidationError("Order total must be greater than zero.")
         return amount
 
-    def clean(self):
-        cleaned_data = super().clean()
-        coffee_qty = cleaned_data.get('coffee_qty', 0)
-        tea_qty = cleaned_data.get('tea_qty', 0)
-        shake_qty = cleaned_data.get('shake_qty', 0)
-        snack_qty = cleaned_data.get('snack_qty', 0)
+    def clean_cart_data(self):
+        raw = self.cleaned_data['cart_data']
+        try:
+            items = json.loads(raw)
+        except (ValueError, TypeError):
+            raise forms.ValidationError("Invalid cart data. Please add items from the menu.")
 
-        if coffee_qty + tea_qty + shake_qty + snack_qty == 0:
-            raise forms.ValidationError("Please select at least one item to order.")
+        if not items or not isinstance(items, list):
+            raise forms.ValidationError("Your cart is empty. Please add at least one item.")
 
-        return cleaned_data
+        for item in items:
+            if not all(k in item for k in ('name', 'price', 'qty')):
+                raise forms.ValidationError("Invalid item data in cart.")
+            try:
+                price = float(item['price'])
+                qty = int(item['qty'])
+            except (ValueError, TypeError):
+                raise forms.ValidationError("Invalid price or quantity in cart.")
+            if price <= 0 or qty <= 0:
+                raise forms.ValidationError("Cart items must have valid price and quantity.")
 
-
+        return items

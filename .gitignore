@@ -24,3 +24,5 @@ Thumbs.db
 
 # Static
 staticfiles/
+**/__pycache__/
+*.pyc

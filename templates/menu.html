@@ -27,31 +27,51 @@
                     <div class="menu-item-content">
                         <h3>Blood Coffee</h3>
                         <p>Dark cherry and espresso blend — bold, intense, and unforgettable</p>
-                        <span class="price">₹180</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹180</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Blood Coffee', 180)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\goldflake.png' %}"alt="Koffinoor Royale" class="menu-item-image">
+                    <img src="{% static 'images/goldflake.png' %}" alt="Koffinoor Royale" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Koffinoor Royale</h3>
                         <p>Premium espresso with saffron milk and delicate gold flakes</p>
-                        <span class="price">₹200</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹200</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Koffinoor Royale', 200)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\FC.avif' %}" alt="Filter Reimagined" class="menu-item-image">
+                    <img src="{% static 'images/FC.avif' %}" alt="Filter Reimagined" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Filter Reimagined</h3>
                         <p>Modern twist on traditional South Indian filter coffee</p>
-                        <span class="price">₹150</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Filter Reimagined', 150)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Vanilla-Chai-Hot-Chocolate-1.webp' %}" alt="Spiced Cocoa Storm" class="menu-item-image">
+                    <img src="{% static 'images/Vanilla-Chai-Hot-Chocolate-1.webp' %}" alt="Spiced Cocoa Storm" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Spiced Cocoa Storm</h3>
                         <p>Rich dark chocolate with warming spices of cinnamon and nutmeg</p>
-                        <span class="price">₹170</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹170</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Spiced Cocoa Storm', 170)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,67 +85,107 @@
             </div>
             <div class="menu-grid">
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\What-Is-Macchiato.webp' %}" alt="Espresso" class="menu-item-image">
+                    <img src="{% static 'images/What-Is-Macchiato.webp' %}" alt="Espresso" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Espresso</h3>
                         <p>Pure and intense shot of premium coffee</p>
-                        <span class="price">₹90</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹90</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Espresso', 90)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\america.webp' %}" alt="Americano" class="menu-item-image">
+                    <img src="{% static 'images/america.webp' %}" alt="Americano" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Americano</h3>
                         <p>Smooth black coffee, clean and straightforward</p>
-                        <span class="price">₹120</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹120</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Americano', 120)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\cappu.jpg' %}" alt="Cappuccino" class="menu-item-image">
+                    <img src="{% static 'images/cappu.jpg' %}" alt="Cappuccino" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Cappuccino</h3>
                         <p>Perfect balance of espresso, steamed milk, and foam</p>
-                        <span class="price">₹140</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹140</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Cappuccino', 140)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Latte-recipe.jpg' %}" alt="Latte" class="menu-item-image">
+                    <img src="{% static 'images/Latte-recipe.jpg' %}" alt="Latte" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Latte</h3>
                         <p>Silky steamed milk with espresso, smooth and comforting</p>
-                        <span class="price">₹150</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Latte', 150)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\FW.jpg' %}" alt="Flat White" class="menu-item-image">
+                    <img src="{% static 'images/FW.jpg' %}" alt="Flat White" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Flat White</h3>
                         <p>Double shot espresso with velvety microfoam</p>
-                        <span class="price">₹160</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹160</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Flat White', 160)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Cold brew.webp' %}" alt="Cold Brew" class="menu-item-image">
+                    <img src="{% static 'images/Cold brew.webp' %}" alt="Cold Brew" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Cold Brew</h3>
                         <p>Smooth, chilled coffee concentrate brewed for hours</p>
-                        <span class="price">₹160</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹160</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Cold Brew', 160)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\mocha-latte-13.jpg' %}" alt="Mocha" class="menu-item-image">
+                    <img src="{% static 'images/mocha-latte-13.jpg' %}" alt="Mocha" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Mocha</h3>
                         <p>Perfect harmony of coffee and chocolate</p>
-                        <span class="price">₹160</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹160</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Mocha', 160)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\affogato.webp' %}" alt="Affogato" class="menu-item-image">
+                    <img src="{% static 'images/affogato.webp' %}" alt="Affogato" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Affogato</h3>
                         <p>Hot espresso shot over creamy vanilla ice cream</p>
-                        <span class="price">₹170</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹170</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Affogato', 170)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,43 +199,68 @@
             </div>
             <div class="menu-grid">
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\MS.jpg' %}" alt="Masala Chai" class="menu-item-image">
+                    <img src="{% static 'images/MS.jpg' %}" alt="Masala Chai" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Masala Chai</h3>
                         <p>Traditional Indian spiced tea with aromatic warmth</p>
-                        <span class="price">₹90</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹90</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Masala Chai', 90)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\EC.webp' %}" alt="Elaichi Chai" class="menu-item-image">
+                    <img src="{% static 'images/EC.webp' %}" alt="Elaichi Chai" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Elaichi Chai</h3>
                         <p>Cardamom-infused tea with fragrant complexity</p>
-                        <span class="price">₹100</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Elaichi Chai', 100)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\GT.webp' %}" alt="Green Tea" class="menu-item-image">
+                    <img src="{% static 'images/GT.webp' %}" alt="Green Tea" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Green Tea</h3>
                         <p>Refreshing and antioxidant-rich, available with mint or lemon</p>
-                        <span class="price">₹100</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Green Tea', 100)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\KASHMIRI-KAHWA.jpg' %}" alt="Kashmiri Kahwa" class="menu-item-image">
+                    <img src="{% static 'images/KASHMIRI-KAHWA.jpg' %}" alt="Kashmiri Kahwa" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Kashmiri Kahwa</h3>
                         <p>Saffron and almond infused traditional Kashmiri tea</p>
-                        <span class="price">₹120</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹120</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Kashmiri Kahwa', 120)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Hibiscus-Tea_HEADER.jpg' %}" alt="Hibiscus Tea" class="menu-item-image">
+                    <img src="{% static 'images/Hibiscus-Tea_HEADER.jpg' %}" alt="Hibiscus Tea" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Hibiscus Tea</h3>
                         <p>Floral and refreshing herbal tea, served hot or iced</p>
-                        <span class="price">₹130</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Hibiscus Tea', 130)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,43 +274,68 @@
             </div>
             <div class="menu-grid">
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\RF.jpg' %}" alt="Rose Falooda" class="menu-item-image">
+                    <img src="{% static 'images/RF.jpg' %}" alt="Rose Falooda" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Rose Falooda</h3>
                         <p>Traditional rose-flavored drink with vermicelli and basil seeds</p>
-                        <span class="price">₹180</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹180</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Rose Falooda', 180)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\MSMOO.webp' %}" alt="Mango Tango" class="menu-item-image">
+                    <img src="{% static 'images/MSMOO.webp' %}" alt="Mango Tango" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Mango Tango</h3>
                         <p>Fresh mango smoothie with tropical sweetness</p>
-                        <span class="price">₹170</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹170</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Mango Tango', 170)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Choco-Frappe.avif' %}"  alt="Choco Frappe" class="menu-item-image">
+                    <img src="{% static 'images/Choco-Frappe.avif' %}" alt="Choco Frappe" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Choco Frappe</h3>
                         <p>Rich chocolate blended drink with ice and cream</p>
-                        <span class="price">₹160</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹160</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Choco Frappe', 160)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Homemade-iced-coffee-1200-1200.jpg' %}"  alt="Classic Cold Coffee" class="menu-item-image">
+                    <img src="{% static 'images/Homemade-iced-coffee-1200-1200.jpg' %}" alt="Classic Cold Coffee" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Classic Cold Coffee</h3>
                         <p>Chilled coffee with milk, ice, and a touch of sweetness</p>
-                        <span class="price">₹140</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹140</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Classic Cold Coffee', 140)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\straw.jpeg' %}"  alt="Strawberry Shake" class="menu-item-image">
+                    <img src="{% static 'images/straw.jpeg' %}" alt="Strawberry Shake" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Strawberry Shake</h3>
                         <p>Fresh strawberry milkshake with natural fruit goodness</p>
-                        <span class="price">₹150</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹150</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Strawberry Shake', 150)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -239,51 +349,81 @@
             </div>
             <div class="menu-grid">
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\Lava-Chocolate-Cakes_.jpg' %}" alt="Chocolate Lava Cake" class="menu-item-image">
+                    <img src="{% static 'images/Lava-Chocolate-Cakes_.jpg' %}" alt="Chocolate Lava Cake" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Chocolate Lava Cake</h3>
                         <p>Warm cake with molten chocolate center</p>
-                        <span class="price">₹110</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹110</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Chocolate Lava Cake', 110)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\banana.png' %}" alt="Banana Walnut Loaf" class="menu-item-image">
+                    <img src="{% static 'images/banana.png' %}" alt="Banana Walnut Loaf" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Banana Walnut Loaf</h3>
                         <p>Moist banana bread studded with crunchy walnuts</p>
-                        <span class="price">₹100</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Banana Walnut Loaf', 100)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg' %}" alt="Chocolate Chip Cookie" class="menu-item-image">
+                    <img src="{% static 'images/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg' %}" alt="Chocolate Chip Cookie" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Chocolate Chip Cookie</h3>
                         <p>Fresh baked cookies with premium chocolate chips</p>
-                        <span class="price">₹100</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Chocolate Chip Cookie', 100)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\cheese.png' %}" alt="Cheese Toast" class="menu-item-image">
+                    <img src="{% static 'images/cheese.png' %}" alt="Cheese Toast" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Cheese Toast</h3>
                         <p>Grilled sandwich with melted cheese and herbs</p>
-                        <span class="price">₹90</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹90</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Cheese Toast', 90)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\paneer.png' %}" alt="Paneer Roll" class="menu-item-image">
+                    <img src="{% static 'images/paneer.png' %}" alt="Paneer Roll" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Paneer Roll</h3>
                         <p>Spiced paneer wrapped in soft bread with mint chutney</p>
-                        <span class="price">₹120</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹120</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Paneer Roll', 120)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="menu-item fade-in">
-                    <img src="{% static 'D:\Project\ProjectCafe\cafe\static\images\fudge.png' %}" alt="Brownie" class="menu-item-image">
+                    <img src="{% static 'images/fudge.png' %}" alt="Brownie" class="menu-item-image">
                     <div class="menu-item-content">
                         <h3>Brownie</h3>
                         <p>Rich, fudgy chocolate brownie with nuts</p>
-                        <span class="price">₹130</span>
+                        <div class="menu-item-footer">
+                            <span class="price">₹130</span>
+                            <button class="add-to-cart-btn" onclick="addToCart('Brownie', 130)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
